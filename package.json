@@ -1,0 +1,24 @@
+{
+  "name": "node-fun",
+  "version": "1.0.0",
+  "description": "Creating a node project, with Dustin Myers at the helm.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bertdawg76/Node-Fun.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bertdawg76/Node-Fun/issues"
+  },
+  "homepage": "https://github.com/bertdawg76/Node-Fun#readme",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3"
+  }
+}
