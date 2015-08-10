@@ -11,6 +11,13 @@ var request = require('request');
 
 var twilio = require('twilio');
 
+var accountSid = 'ACd950127f41333ba38b210a17d6723211'; 
+var authToken = 'b6a6446bd33956728814f246c9207f8e'; 
+
+//require the Twilio module and create a REST client 
+var client = twilio(accountSid, authToken);
+
+
 var app = express();
 
 var port = 4000;
@@ -20,6 +27,17 @@ var message = {
 };
 
 //Middleware
+
+
+/*client.messages.create({ 
+	to: "+18018364139", 
+	from: "+13852194722", 
+	body: "what up bert",   
+}, function(err, message) { 
+	console.log(message.sid); 
+});
+
+app.use(twilio());*/
 
 app.use(express.static('public'));
 
@@ -42,9 +60,18 @@ app.get('/api/message', function(req, res) {
 });
 
 app.post('/api/send_text_message', function(req, res){
-	console.log(req.body);
-	res.send();
-})
+	console.log(req.body.message);
+	//request.post('https://' + accountSid + ':' + authToken + '@api.twilio.com/2010-04-01/Accounts/')
+	client.messages.create({ 
+	to: "8018364139", 
+	from: "+13852194722", 
+	body: "what up bert",   
+}, function(err, message) { 
+	console.log(message.sid); 
+});
+
+
+});
 
 app.listen(port, function(){
  console.log('Im watching you port 4000')
